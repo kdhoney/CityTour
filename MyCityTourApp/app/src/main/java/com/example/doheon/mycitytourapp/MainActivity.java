@@ -1,9 +1,11 @@
 package com.example.doheon.mycitytourapp;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -13,6 +15,12 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    public void onClick(View view) {
+        Intent intent = new Intent(this, menuActivity.class);
+        startActivity(intent);
+    }
+
 
 
     @Override
