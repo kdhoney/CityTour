@@ -7,41 +7,57 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Toast;
 
+//import android.support.v4.app.FragmentActivity;
+//import android.support.v4.app.FragmentTransaction;
+
 /**
  * Created by DoHeon on 2015-03-17.
  */
 public class contentActivity extends FragmentActivity {
 
-    public static FragmentManager fragmeManager;
-    private com.google.android.gms.maps.SupportMapFragment smapFragment;
+    public FragmentManager fManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content); //여기까지 초기화
+        //fManager = getSupportFragmentManager();
 
 
-
-
-
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft = getSupportFragmentManager().beginTransaction();
-        MapsActivity gMap = new MapsActivity(); //Second는 Map의 Fragment이다.
-        ft.add(R.id.fragcont, gMap);
-        ft.addToBackStack(null);
-        ft.commit();
+        //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        //ft = getSupportFragmentManager().beginTransaction();
+        //MapsActivity gMap = new MapsActivity(); //Second는 Map의 Fragment이다.
+        //ft.add(R.id.fragcont, gMap);
+        //ft.addToBackStack(null);
+        //ft.commit();
     }
 
     public void onClick(View view) {
+
+        //FragmentManager fragmentManager = getFragmentManager();
+
+        //Fragment fragment = new Fragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
         switch (view.getId()) {
             case R.id.button_map:
-                Toast.makeText(this, "button_Map_it", Toast.LENGTH_SHORT).show();
-                //fr = new fragmentone();
+
+                MapsActivity gMap = new MapsActivity(); //Second는 Map의 Fragment이다.
+                ft.add(R.id.fragcont, gMap);
+                ft.addToBackStack(null);
+                ft.commit();
+                //Toast.makeText(this, "button_Map_it", Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.button_info:
-                Toast.makeText(this, "button_Info", Toast.LENGTH_SHORT).show();
-               // fr = new fragmenttwo();
+                fragmenttwo wvf = new fragmenttwo();
+               // Toast.makeText(this, "button_Info", Toast.LENGTH_SHORT).show();
+                //Intent i = this.getIntent();
+                //String link = i.getExtras().getString("link");
+                wvf.init("http://www.naver.com/");
+                getFragmentManager().beginTransaction().add(R.id.fragcont, wvf).commit();
                 break;
         }
+       // fragmentManager.beginTransaction().replace(R.id.fragcont, fragment).commit();
 
        // FragmentManager fm = getFragmentManager();
        // FragmentTransaction fragmentTransaction = fm.beginTransaction();
