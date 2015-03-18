@@ -20,6 +20,8 @@
         android:orientation = "vertical"
         android:layout_margin="10dp">
         <Button
+            android:id = "@+id/btn_1"
+            android:onClick = "onClick"
             android:layout_width = "match_parent"
             android:layout_height = "match_parent"
             android:text = "남산"
@@ -31,6 +33,8 @@
         android:orientation = "vertical"
         android:layout_margin="10dp">
         <Button
+            android:id = "@+id/btn_2"
+            android:onClick = "onClick"
             android:layout_width = "match_parent"
             android:layout_height = "match_parent"
             android:text = "숭례문"
@@ -42,6 +46,8 @@
         android:orientation = "vertical"
         android:layout_margin="10dp">
         <Button
+            android:id = "@+id/btn_3"
+            android:onClick = "onClick"
             android:layout_width = "match_parent"
             android:layout_height = "match_parent"
             android:text = "63빌딩"
@@ -53,6 +59,8 @@
         android:orientation = "vertical"
         android:layout_margin="10dp">
         <Button
+            android:id = "@+id/btn_4"
+            android:onClick = "onClick"
             android:layout_width = "match_parent"
             android:layout_height = "match_parent"
             android:text = "경복궁"
