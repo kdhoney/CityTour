@@ -11,11 +11,13 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id = "@+id/login_id"
             android:hint = "아이디"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id = "@+id/login_pw"
             android:hint = "비밀번호"
             />
         </LinearLayout>

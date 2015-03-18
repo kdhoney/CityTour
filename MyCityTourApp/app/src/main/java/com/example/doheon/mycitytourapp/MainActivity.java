@@ -6,22 +6,34 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+    private EditText logid;
+    private EditText logpw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        logid = (EditText)findViewById(R.id.login_id);
+        logpw = (EditText)findViewById(R.id.login_pw);
+
     }
 
     public void onClick(View view) {
-        Intent intent = new Intent(this, menuActivity.class);
-        startActivity(intent);
+
+        if(logid.getText().toString().equals("abcd")==true && logpw.getText().toString().equals("1234")) {
+            Intent intent = new Intent(this, menuActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "id, password 오류", Toast.LENGTH_SHORT).show();
+        }
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
