@@ -17,7 +17,7 @@ public class menuActivity extends Activity {
 
     public void onClick(View view) {
 
-        Intent intent = new Intent(this, MapsActivity.class);
+        Intent intent = new Intent(this, contentActivity.class);
         switch(view.getId())
         {
             case R.id.btn_1:

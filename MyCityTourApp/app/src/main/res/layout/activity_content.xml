@@ -19,31 +19,23 @@
         android:orientation="horizontal"
         >
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/button_map"
+            android:onClick = "onClick"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Fragment 1"/>
+            android:text="Map it"/>
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button_info"
+            android:onClick = "onClick"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Fragment 2"/>
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Fragment 3"/>
-
-    </LinearLayout>
+            android:text="Info"/>
+     </LinearLayout>
     <FrameLayout
-        android:id="@+id/maincontainer"
+        android:id="@+id/fragcont"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-
-    </FrameLayout>
-
+        />
 </LinearLayout>
