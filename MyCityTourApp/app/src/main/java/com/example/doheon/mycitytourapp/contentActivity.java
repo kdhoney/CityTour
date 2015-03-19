@@ -1,10 +1,8 @@
 package com.example.doheon.mycitytourapp;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,39 +12,54 @@ import android.widget.Toast;
  */
 public class contentActivity extends FragmentActivity {
 
+    final int MAPIT = 0;
+    final int INFO = 1;
+    private int state = MAPIT; //0 = mapit, 1 = info
+
     String locate;
     String weblink;
     private TextView header; //화면 제일 상단의 스트링 나오는 부분의 id
+    private  MapsActivity gMap = null;
+    private fragmenttwo wvf = null;
 
-     public FragmentManager fManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content); //여기까지 초기화
-        header= (TextView)findViewById(R.id.header);
+        gMap = new MapsActivity();
+        wvf = new fragmenttwo();
 
+        header= (TextView)findViewById(R.id.header);
         Intent intent = getIntent();
         locate = intent.getStringExtra("locate");
         weblink = intent.getStringExtra("link");
-
         header.setText("Tour "+ locate);
+        wvf.init(weblink);
+        state = MAPIT;
+
+        getSupportFragmentManager().beginTransaction().add(R.id.fragcont, gMap).commit();
     }
 
     public void onClick(View view) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
 
         switch (view.getId()) {
             case R.id.button_map:
-                MapsActivity gMap = new MapsActivity(); //Second는 Map의 Fragment이다.
-                ft.add(R.id.fragcont, gMap);
-                ft.addToBackStack(null);
-                ft.commit();
-
+               //Second는 Map의 Fragment이다.
+                if(state!=MAPIT) {
+                    //getFragmentManager().beginTransaction().
+                    getFragmentManager().beginTransaction().remove(wvf).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fragcont, gMap).commit();
+                    state = MAPIT;
+                }
                 break;
             case R.id.button_info:
-                fragmenttwo wvf = new fragmenttwo();
-                wvf.init(weblink);
-                getFragmentManager().beginTransaction().add(R.id.fragcont, wvf).commit();
+                //MapsActivity gMap_1 = new MapsActivity();
+                if(state!=INFO) {
+                    getSupportFragmentManager().beginTransaction().remove(gMap).commit();
+                    getFragmentManager().beginTransaction().add(R.id.fragcont, wvf).commit();
+                    state = INFO;
+                }
                 break;
         }
     }
