@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -25,14 +24,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onClick(View view) {
-
-        if(logid.getText().toString().equals("abcd")==true && logpw.getText().toString().equals("1234")) {
-            Intent intent = new Intent(this, menuActivity.class);
-            startActivity(intent);
-        }
-        else {
-            Toast.makeText(this, "id, password 오류", Toast.LENGTH_SHORT).show();
-        }
+        Intent intent = new Intent(this, menuActivity.class);
+        startActivity(intent);
+       // if(logid.getText().toString().equals("abcd")==true && logpw.getText().toString().equals("1234")) {
+         //   Intent intent = new Intent(this, menuActivity.class);
+           // startActivity(intent);
+       // }
+        //else {
+          //  Toast.makeText(this, "id, password 오류", Toast.LENGTH_SHORT).show();
+        //}
     }
 
     @Override
